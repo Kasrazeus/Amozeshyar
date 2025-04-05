@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ورود به سيستم</title>
+    <link href="Pages/css/login.css" type="text/css" rel="stylesheet" />
+    <style>
+        body { font-family: Tahoma; direction: rtl; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table border="0">
+            <tr>
+                <td>
+                    <!-- HEADER IMAGES -->
+                    <table id="loginTable" cellpadding="0" cellspacing="0" align="center">
+                        <tr>
+                            <td align="center"><img src="Pages/images/organlogo.png" width="90"></td>
+                            <td align="center"><img src="Pages/images/amoozeshyar.png" width="150" height="100"></td>
+                            <td align="center"><img src="Pages/images/graduation.png" width="100" height="100"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <!-- FAKE ANNOUNCEMENT TEXT -->
+                                <div style="padding: 15px;">
+                                    <h3 style="color: blue">اطلاعیه مهم</h3>
+                                    <p>دانشجویان گرامی، جهت ورود اطلاعات را به دقت وارد کنید.</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <!-- LOGIN FORM -->
+                                <form id="loginForm">
+                                    <table align="center">
+                                        <tr>
+                                            <td><input type="text" id="username" placeholder="40211330586078"></td>
+                                            <td>: نام کاربری</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="password" id="password" placeholder="Kasra8405"></td>
+                                            <td>: کلمه عبور</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="text" id="captcha" placeholder="کد را وارد کنید"></td>
+                                            <td>: کد تصویر</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2"><img src="jcaptcha.jpg" width="224" height="60"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="submit" value="ورود به سيستم"></td>
+                                            <td><a href="#" onclick="reloadImg(); return false;"><img src="Pages/images/icons/refresh_.gif" width="25"></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <a href="#">فراموشی / باز شدن قفل رمز عبور</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div id="error" class="error" align="center"></div>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+const user = document.getElementById('username').value.trim();
+            const pass = document.getElementById('password').value.trim();
+            const errorBox = document.getElementById('error');
+            if (user === '40211330586078' && pass === 'Kasra8405') {
+                window.location.href = 'main-page.html';
+            } else {
+                errorBox.textContent = 'نام کاربری یا کلمه عبور اشتباه است';
+            }
+        });function reloadImg() {
+        const img = document.querySelector('img[src^="jcaptcha.jpg"]');
+        img.src = 'jcaptcha.jpg?v=' + new Date().getTime();
+    }
+</script>
+
+</body>
+</html>
